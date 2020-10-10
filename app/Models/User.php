@@ -58,4 +58,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function timeline() {
+        return Tweet::where('user_id', $this->id)->latest()->get();
+    }
+
+    public function follows() {
+        /* return */ 
+    }
 }

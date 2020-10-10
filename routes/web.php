@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\TweetController;
+use App\Models\Tweet;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $tweets = Auth::user()->timeline();
+    return view('welcome', ['tweets' => $tweets]);
 });
+
+Route::post('/tweets', [TweetController::class, 'store']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -6,7 +6,7 @@
         @include('sidebar-links')
     </div>
     <div class="pilar border-gray-600">
-        @include('main-content')
+        @include('main-content', ['tweets' => $tweets])
     </div>
     <div class="pilar border-gray-600">
         @include('friends')
