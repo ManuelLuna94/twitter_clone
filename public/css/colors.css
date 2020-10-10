@@ -1,0 +1,8 @@
+html {
+    --main-color: rgb(21, 32, 43);
+    --border-color: #d2d6dc;
+}
+
+body {
+    background-color: var(--main-color);
+}
