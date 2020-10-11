@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $tweets = Auth::user()->timeline();
     return view('welcome', ['tweets' => $tweets]);
-});
+})->middleware('auth');
 
 Route::post('/tweets', [TweetController::class, 'store']);
 

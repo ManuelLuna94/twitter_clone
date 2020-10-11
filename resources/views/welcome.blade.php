@@ -9,7 +9,7 @@
         @include('main-content', ['tweets' => $tweets])
     </div>
     <div class="pilar border-gray-600">
-        @include('friends')
+        @include('following')
     </div>
 </div>
 @endsection
