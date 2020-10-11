@@ -4,7 +4,7 @@
         @foreach(Auth::user()->follows as $user)
         <li>
             <div class="flex m-2 items-center">
-                <a href="/profile/{{ $user->id }}">
+                <a href="{{ route('tweets.profile', $user->id) }}">
                     <img
                         src="https://picsum.photos/40"
                         alt="{{ $user->name }}"
@@ -12,7 +12,7 @@
                     >
                 </a>
                 <p class="mx-4 text-white">
-                    <a href="/profile/{{ $user->id }}">
+                    <a href="{{ route('tweets.profile', $user->id) }}">
                         {{ $user->name }}
                     </a>
                 </p>

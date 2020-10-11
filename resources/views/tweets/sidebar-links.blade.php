@@ -19,7 +19,7 @@
             <a href="/">Lists</a>
         </li>
         <li class="text-xl text-white font-bold mb-4">
-            <a href="/">Profile</a>
+            <a href="{{ route('tweets.profile', Auth::id()) }}">Profile</a>
         </li>
         <li class="text-xl text-white font-bold mb-4">
             <a href="/">More</a>

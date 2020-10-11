@@ -16,10 +16,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        $tweets = Auth::user()->timeline();
-        return view('tweets.welcome', ['tweets' => $tweets]);
-    });
+    Route::get('/', [TweetController::class, 'index']);
     Route::post('/tweets', [TweetController::class, 'store']);
     Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('tweets.profile');
 });

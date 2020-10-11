@@ -59,14 +59,23 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function timeline() {
+    public function tweets() {
         return Tweet::where('user_id', $this->id)->latest()->get();
+    }
+
+    public function timeline() {
+        $following_ids = $this->follows()->pluck('id');
+        return Tweet::
+                whereIn('user_id', $following_ids)
+                ->orWhere('user_id', $this->id)
+                ->latest()
+                ->get();
     }
 
     public function follow(User $user) {
         return $this->follows()->save($user);
     }
-    
+
     public function follows() {
         return $this->belongsToMany(User::class, 'follows', 'user_id', 'follow_id');
     }
