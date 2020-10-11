@@ -16,7 +16,19 @@
 
     <section class="px-10 h-full">
         <main class="h-full">
-        @yield('content')
+
+            <div class="flex h-full">
+                <div class="pilar border-gray-600">
+                    @include('tweets.sidebar-links')
+                </div>
+                <div class="pilar border-gray-600">
+                    @yield('content')
+                </div>
+                <div class="pilar border-gray-600">
+                    @include('tweets.following')
+                </div>
+            </div>
+
         </main>
     </section>
 </body>
