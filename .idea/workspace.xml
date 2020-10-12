@@ -11,14 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd60d144-0513-4caa-8440-b9678b797203" name="Default Changelist" comment="&quot;little clean up&quot;">
-      <change afterPath="$PROJECT_DIR$/resources/views/tweets/_timeline.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Followable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TweetController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tweets/following.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tweets/following.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/tweets/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tweets/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tweets/sidebar-links.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tweets/sidebar-links.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tweets/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tweets/timeline.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,6 +161,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="PluginDummyText.Genre" value="esoteric" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -181,8 +178,9 @@
     <option name="myCommands">
       <command value="artisan migrate" />
       <command value="artisan jetstream:install livewire" />
-      <command value="artisan serve" />
       <command value="artisan make:controller ProfileController" />
+      <command value="artisan serve" />
+      <command value="artisan make:controller FollowController" />
     </option>
   </component>
   <component name="RunManager">
@@ -201,7 +199,8 @@
       <updated>1602345428274</updated>
       <workItem from="1602345429444" duration="1082000" />
       <workItem from="1602444796211" duration="1970000" />
-      <workItem from="1602446853390" duration="6682000" />
+      <workItem from="1602446853390" duration="8318000" />
+      <workItem from="1602525313951" duration="3815000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;little clean up&quot;">
       <created>1602448200805</created>
@@ -237,41 +236,45 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="489" y="313" key="#com.jetbrains.php.refactoring.move.namespace.PhpMoveNamespaceDialog#/0.0.1366.768@0.0.1366.768" timestamp="1602447722113" />
-    <state width="1275" height="175" key="GridCell.Tab.0.bottom" timestamp="1602447565505">
+    <state width="1275" height="175" key="GridCell.Tab.0.bottom" timestamp="1602527020721">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1275" height="175" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602447565505" />
-    <state width="1275" height="175" key="GridCell.Tab.0.center" timestamp="1602447565503">
+    <state width="1275" height="175" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602527020721" />
+    <state width="1275" height="175" key="GridCell.Tab.0.center" timestamp="1602527020720">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1275" height="175" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602447565503" />
-    <state width="1275" height="175" key="GridCell.Tab.0.left" timestamp="1602447565501">
+    <state width="1275" height="175" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602527020720" />
+    <state width="1275" height="175" key="GridCell.Tab.0.left" timestamp="1602527020719">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1275" height="175" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602447565501" />
-    <state width="1275" height="175" key="GridCell.Tab.0.right" timestamp="1602447565504">
+    <state width="1275" height="175" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602527020719" />
+    <state width="1275" height="175" key="GridCell.Tab.0.right" timestamp="1602527020720">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1275" height="175" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602447565504" />
+    <state width="1275" height="175" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602527020720" />
+    <state x="436" y="152" key="NewPhpClassDialog" timestamp="1602528572591">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="436" y="152" key="NewPhpClassDialog/0.0.1366.768@0.0.1366.768" timestamp="1602528572591" />
     <state x="528" y="368" key="NewPhpFileDialog" timestamp="1602446372480">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="528" y="368" key="NewPhpFileDialog/0.0.1366.768@0.0.1366.768" timestamp="1602446372480" />
-    <state x="207" y="34" width="997" height="734" key="SettingsEditor" timestamp="1602452225439">
+    <state x="207" y="34" width="997" height="734" key="SettingsEditor" timestamp="1602453880129">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="207" y="34" width="997" height="734" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602452225439" />
+    <state x="207" y="34" width="997" height="734" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602453880129" />
     <state x="281" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602451992246">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="281" y="181" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1602451992246" />
-    <state x="369" y="183" width="672" height="677" key="run.anything.popup" timestamp="1602447541113">
+    <state x="369" y="183" width="672" height="677" key="run.anything.popup" timestamp="1602527254233">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="369" y="183" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1602447541113" />
-    <state x="368" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602452932717">
+    <state x="369" y="183" width="672" height="677" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1602527254233" />
+    <state x="368" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1602527259349">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="368" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602452932717" />
+    <state x="368" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1602527259349" />
   </component>
 </project>

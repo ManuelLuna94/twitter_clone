@@ -17,6 +17,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -70,13 +71,5 @@ class User extends Authenticatable
                 ->orWhere('user_id', $this->id)
                 ->latest()
                 ->get();
-    }
-
-    public function follow(User $user) {
-        return $this->follows()->save($user);
-    }
-
-    public function follows() {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'follow_id');
     }
 }

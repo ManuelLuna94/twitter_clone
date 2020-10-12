@@ -5,6 +5,7 @@ use App\Models\Tweet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FollowController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,11 @@ use App\Http\Controllers\ProfileController;
 Route::middleware('auth')->group(function () {
     Route::get('/', [TweetController::class, 'index']);
     Route::post('/tweets', [TweetController::class, 'store']);
-    Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('tweets.profile');
+
+    Route::get('/profiles/{user}', [ProfileController::class, 'show'])->name('tweets.profile');
+
+    Route::post('/profiles/{user}/follow', [FollowController::class, 'store'])->name('follow.store');
+    Route::delete('/profiles/{user}/follow', [FollowController::class, 'destroy'])->name('follow.destroy');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

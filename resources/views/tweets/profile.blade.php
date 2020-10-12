@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <header class="relative mb-12">
+    <header class="relative mb-8">
         <div
             style="background-image: url('https://c4.wallpaperflare.com/wallpaper/494/697/154/singers-iu-wallpaper-preview.jpg')"
             class="h-48 w-full bg-center"
@@ -25,18 +25,39 @@
                     Edit profile
                 </a>
                 @else
-                <a href="/"
-                    class="m-2 text-xl py-2 px-4 font-thin text-white rounded-full bg-blue-600"
-                >
-                    Follow
-                </a>
+                    @if(Auth::user()->isFollowing($user))
+                        <form method="POST" action="{{ route('follow.destroy', $user->id) }}">
+                            @csrf
+                            @method("DELETE")
+                            <button
+                                class="m-2 text-xl py-2 px-4 font-thin text-white rounded-full bg-blue-600"
+                            >
+                                Unfollow
+                            </button>
+                        </form>
+                    @else
+                        <form method="POST" action="{{ route('follow.store', $user->id) }}">
+                            @csrf
+                            <button
+                                class="m-2 text-xl py-2 px-4 font-thin text-white rounded-full bg-blue-600"
+                            >
+                                Follow
+                            </button>
+                        </form>
+                    @endif
                 @endif
             </div>
+        </div>
+        <div class="text-center">
+            <p class="text-sm text-gray-500 break-all m-auto w-1/2">
+                Fear is not mediocre in shangri-la, the state of art, or hell, but everywhere.
+            </p>
         </div>
     </header>
 
     @include('tweets._timeline', ['tweets' => $user->tweets()])
 @endsection
+
 <script>
     import Button from "../../js/Jetstream/Button";
     export default {
