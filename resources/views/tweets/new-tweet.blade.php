@@ -3,7 +3,7 @@
         @csrf
         <div class="flex px-10 py-4 items-center">
             <img
-                src="https://static.wikia.nocookie.net/sailormooncrystal/images/1/19/Act23_89.jpg/revision/latest/top-crop/width/360/height/450?cb=20170722080641"
+                src="{{ Auth::user()->get_avatar() }}"
                 alt="user"
                 class="h-14 w-14 rounded-full"
             >

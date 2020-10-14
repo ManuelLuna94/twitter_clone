@@ -4,7 +4,7 @@
             <a href="/">Home</a>
         </li>
         <li class="text-xl text-white font-bold mb-4">
-            <a href="/">Explore</a>
+            <a href="{{ route('explore.index') }}">Explore</a>
         </li>
         <li class="text-xl text-white font-bold mb-4">
             <a href="/">Notifications</a>
@@ -19,7 +19,7 @@
             <a href="/">Lists</a>
         </li>
         <li class="text-xl text-white font-bold mb-4">
-            <a href="{{ route('tweets.profile', Auth::id()) }}">Profile</a>
+            <a href="{{ route('tweets.profile', Auth::user()) }}">Profile</a>
         </li>
         <li class="text-xl text-white font-bold mb-4">
             <a href="/">More</a>

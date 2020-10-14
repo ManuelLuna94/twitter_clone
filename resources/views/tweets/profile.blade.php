@@ -9,7 +9,7 @@
         <img
             class="w-40 h-40 absolute rounded-full overflow-hidden"
             style="top: 60%; left: 50%; transform: translate(-50%, -50%)"
-            src="https://c4.wallpaperflare.com/wallpaper/494/697/154/singers-iu-wallpaper-preview.jpg"
+            src="{{ $user->get_avatar() }}"
             alt="user picture"
         >
         <div class="my-8 mx-4 flex justify-between items-center">
@@ -19,14 +19,14 @@
             <div>
                 @if(Auth::id() === $user->id)
                 <a
-                    href="/"
+                    href="{{ route('profile.edit', $user) }}"
                     class="m-2 text-xl py-2 px-4 font-thin text-white rounded-full border border-gray-300"
                 >
                     Edit profile
                 </a>
                 @else
                     @if(Auth::user()->isFollowing($user))
-                        <form method="POST" action="{{ route('follow.destroy', $user->id) }}">
+                        <form method="POST" action="{{ route('follow.destroy', $user) }}">
                             @csrf
                             @method("DELETE")
                             <button
@@ -36,7 +36,7 @@
                             </button>
                         </form>
                     @else
-                        <form method="POST" action="{{ route('follow.store', $user->id) }}">
+                        <form method="POST" action="{{ route('follow.store', $user) }}">
                             @csrf
                             <button
                                 class="m-2 text-xl py-2 px-4 font-thin text-white rounded-full bg-blue-600"
@@ -58,9 +58,3 @@
     @include('tweets._timeline', ['tweets' => $user->tweets()])
 @endsection
 
-<script>
-    import Button from "../../js/Jetstream/Button";
-    export default {
-        components: {Button}
-    }
-</script>
